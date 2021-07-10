@@ -9,9 +9,21 @@ const {
   delete_lead,
   delete_lead_json,
 } = require("../controllers/landing");
+
+const {
+  show_login,
+  show_signup,
+  login,
+  signup,
+} = require("../controllers/user");
 var router = express.Router();
 
 /* GET home page. */
+router.get("/login", show_login);
+router.get("/signup", show_signup);
+router.post("/login", login);
+router.post("/signup", signup);
+
 router.get("/", get_landing);
 router.post("/", submit_lead);
 router.get("/leads", show_leads);
